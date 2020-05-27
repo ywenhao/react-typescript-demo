@@ -10,7 +10,6 @@ import TodoList from './TodoList';
 const { Title } = Typography;
 const { TabPane } = Tabs;
 
-
 function App() {
   const [todoList, setTodoList] = useState(todoListData);
   const callback = () => {};
