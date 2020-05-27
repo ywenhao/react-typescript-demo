@@ -2,8 +2,8 @@ import React from "react";
 import { List, Avatar, Menu, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
-import { getUserById } from "./utils/data";
-import { Todo } from './utils/data.d';
+import { getUserById } from "../utils/data";
+import { Todo } from '../utils/data.d';
 
 const menu = (
   <Menu>

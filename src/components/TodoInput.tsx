@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input, Select, DatePicker } from "antd";
 import { Moment } from "moment";
 
-import { userList } from "./utils/data";
+import { userList } from "../utils/data";
 
 const { Option } = Select;
 

@@ -4,8 +4,8 @@ import './App.css';
 import { Typography, Form, Button, Tabs } from 'antd';
 import { todoListData } from "./utils/data";
 
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
