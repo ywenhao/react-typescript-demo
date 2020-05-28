@@ -5,7 +5,7 @@ import { Typography, Form, Button, Tabs } from 'antd';
 import { todoListData } from "./utils/data";
 
 import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
+import TodoList, { MenuKey } from './components/TodoList';
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -21,6 +21,22 @@ function App() {
 
   const activeTodoList = todoList.filter(todo => !todo.isCompleted);
   const completedTodoList = todoList.filter(todo => todo.isCompleted);
+
+  const onClick = (todoId: string, key: MenuKey) => {
+    if (key === 'complete') {
+      const newTodoList = todoList.map(todo => {
+        if (todo.id === todoId) {
+          return { ...todo, isCompleted: !todo.isCompleted };
+        }
+        return todo;
+      });
+      setTodoList(newTodoList);
+    } else if (key === 'delete') {
+      const newTodoList = todoList.filter(todo => todo.id !== todoId);
+      setTodoList(newTodoList);
+    }
+  }
+
   return (
     <div className="App" ref={ref}>
       <div className="container header">
@@ -42,13 +58,13 @@ function App() {
       <div className="container">
         <Tabs onChange={callback} type="card">
           <TabPane tab="所有" key="1">
-            <TodoList todoList={todoList} />
+            <TodoList todoList={todoList} onClick={onClick} />
           </TabPane>
           <TabPane tab="进行中" key="2">
-            <TodoList todoList={activeTodoList} />
+            <TodoList todoList={activeTodoList} onClick={onClick} />
           </TabPane>
           <TabPane tab="已完成" key="3">
-            <TodoList todoList={completedTodoList} />
+            <TodoList todoList={completedTodoList} onClick={onClick} />
           </TabPane>
         </Tabs>
       </div>
