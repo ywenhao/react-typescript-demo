@@ -33,3 +33,18 @@ function getUserInfo(os: Linux | Mac | Windows) {
 }
 
 getUserInfo({type: 'Linux', linuxUserInfo: '极客'});
+
+class Animal {
+  constructor(name: string) {
+    this.name = name;
+  }
+  name: string;
+  static isAnimal(a: Animal): boolean {
+    return a instanceof Animal;
+  }
+  move(distance: number) {
+    console.log(`Animal moved ${distance}`);
+  }
+}
+
+new Animal('Tom');
